@@ -19,15 +19,23 @@
     
 
     $app->get('/', 'SiteController:index');
-    $app->get('/alunni', 'AlunniController:alunni');
-    $app->get('/alunni/{nome}', 'AlunniController:search');
+    $app->get('/impianto', 'SiteController:impianto');
 
-    $app->get('/api/alunni', 'ApiAlunniController:alunni');
-    $app->get('/api/alunni/{nome}', 'ApiAlunniController:search');
+    $app->get('/rilevatori_di_umidita', 'RilevatoriController:rilevatoriUmidita');
+    $app->get('/rilevatori_di_umidita/{identificativo}', 'RilevatoriController:rilevatoreSearch');
+    $app->get('/rilevatori_di_umidita/{identificativo}/misurazioni', '');
+    $app->get('rilevatori_di_umidita/{identificativo}/misurazioni/maggiore_di/{valore_minimo}', '');
+    
+    $app->post('/rilevatori_di_umidita', ':');
+    $app->put('/rilevatori_di_umidita/{identificativo}', ':');
 
-    $app->post('/api/alunni', 'ApiAlunniController:createAlunno');
-    $app->put('/api/alunni/{nome}', 'ApiAlunniController:updateAlunno');
-    $app->delete('/api/alunni/{nome}', 'ApiAlunniController:deleteAlunno');
+    $app->get('/rilevatori_di_temperatura', 'RilevatoriController:rilevatoriTemperatura');
+    $app->get('/rilevatori_di_temperatura/{identificativo}', 'RilevatoriController:rilevatoreSearch');
+    $app->get('/rilevatori_di_temperatura/{identificativo}/misurazioni', '');
+    $app->get('rilevatori_di_temperatura/{identificativo}/misurazioni/maggiore_di/{valore_minimo}', '');
+
+    $app->post('/rilevatori_di_temperatura', ':');
+    $app->put('/rilevatori_di_temperatura/{identificativo}', ':');
 
     $app->run();
 

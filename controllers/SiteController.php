@@ -6,10 +6,16 @@
     class SiteController {
 
         function index (Request $request, Response $response, $args) {
+
+            $response->getBody()->write("Hello World!");
+            return $response;
+        }
+
+        function impi (Request $request, Response $response, $args) {
             
-            $classe = new Classe();
-    
-            $response->getBody()->write($classe -> toString());
+            $impianto = new Impianto("Pippo", "10", "20");
+
+            $response->getBody()->write(json_encode($impianto));
             return $response;
         }
 
