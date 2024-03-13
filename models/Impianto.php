@@ -13,12 +13,12 @@
             $this->latitudine = $latitudine;
             $this->longitudine = $longitudine;
 
-            $R1 = new RilevatoreTemperatura(1, 001, "acqua");
-            $R2 = new RilevatoreTemperatura(2, 002, "aria");
-            $R3 = new RilevatoreUmidita(3, 003, "acqua");
-            $R3 = new RilevatoreUmidita(4, 004, "aria");
+            $R1 = new RilevatoreTemperatura(1, "001", "acqua");
+            $R2 = new RilevatoreTemperatura(2, "002", "aria");
+            $R3 = new RilevatoreUmidita(3, "003", "acqua");
+            $R4 = new RilevatoreUmidita(4, "004", "aria");
 
-            $this->arrayRilevatori = [$R1,$R2,$R3];
+            $this->arrayRilevatori = [$R1,$R2,$R3,$R4];
 
         }
 
@@ -88,15 +88,13 @@
 
         function search($id) {
 
-            $R = "";
             foreach($this->arrayRilevatori as $i) {
-
-                if ($i->get_identificativoa() == $ide) {
-                    $R = $i;
+              
+                if ($i->get_identificativo() == $id) {
+                    break;
                 }
             }
-
-            return $R;
+            return $i;
 
         }
 

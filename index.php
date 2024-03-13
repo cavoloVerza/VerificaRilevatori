@@ -23,19 +23,19 @@
 
     $app->get('/rilevatori_di_umidita', 'RilevatoriController:rilevatoriUmidita');
     $app->get('/rilevatori_di_umidita/{identificativo}', 'RilevatoriController:rilevatoreSearch');
-    $app->get('/rilevatori_di_umidita/{identificativo}/misurazioni', '');
-    $app->get('rilevatori_di_umidita/{identificativo}/misurazioni/maggiore_di/{valore_minimo}', '');
-    
-    $app->post('/rilevatori_di_umidita', ':');
-    $app->put('/rilevatori_di_umidita/{identificativo}', ':');
+    $app->get('/rilevatori_di_umidita/{identificativo}/misurazioni', 'RilevatoriController:rilevatoreSearchMisurazioni');
+    $app->get('/rilevatori_di_umidita/{identificativo}/misurazioni/maggiore_di/{valore_minimo}', 'RilevatoriController:rilevatoreValoreMaggiore');
+
+    $app->post('/rilevatori_di_umidita', 'RilevatoriController:rilevatoreUmiditaPost');
+    $app->put('/rilevatori_di_umidita/{identificativo}', 'RilevatoriController:rilevatorePut');
 
     $app->get('/rilevatori_di_temperatura', 'RilevatoriController:rilevatoriTemperatura');
     $app->get('/rilevatori_di_temperatura/{identificativo}', 'RilevatoriController:rilevatoreSearch');
-    $app->get('/rilevatori_di_temperatura/{identificativo}/misurazioni', '');
-    $app->get('rilevatori_di_temperatura/{identificativo}/misurazioni/maggiore_di/{valore_minimo}', '');
+    $app->get('/rilevatori_di_temperatura/{identificativo}/misurazioni', 'RilevatoriController:rilevatoreSearchMisurazioni');
+    $app->get('/rilevatori_di_temperatura/{identificativo}/misurazioni/maggiore_di/{valore_minimo}', 'RilevatoriController:rilevatoreValoreMaggiore');
 
-    $app->post('/rilevatori_di_temperatura', ':');
-    $app->put('/rilevatori_di_temperatura/{identificativo}', ':');
+    $app->post('/rilevatori_di_temperatura', 'RilevatoriController:rilevatoreTemperaturaPost');
+    $app->put('/rilevatori_di_temperatura/{identificativo}', 'RilevatoriController:rilevatorePut');
 
     $app->run();
 

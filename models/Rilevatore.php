@@ -40,6 +40,11 @@
             return $this->codiceSeriale;
         }
 
+        function get_misurazioni() {
+
+            return $this->arraymisurazioni;
+        }
+
         public function jsonSerialize(){
 
             $a = [
@@ -49,6 +54,21 @@
                 "arraymisurazioni" => $this->arraymisurazioni,
             ];
             return $a;
+        }
+
+        function get_ValoreMaggiore($max) {
+
+            $array = [];
+
+            foreach($this->arraymisurazioni as $i) {
+
+                if ($i->get_valore() > $max) {
+                    array_push($array, $i);
+                }
+            }
+
+            return $array;
+
         }
 
     }

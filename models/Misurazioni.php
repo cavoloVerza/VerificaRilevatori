@@ -3,12 +3,12 @@
     class Misurazioni implements JsonSerializable {
 
         protected $data;
-        protected $ora;
+        protected $valore;
         
-        public function __construct($data, $ora) {
+        public function __construct($data, $valore) {
 
             $this->data = $data;
-            $this->ora = $ora;
+            $this->valore = $valore;
 
         }
 
@@ -20,19 +20,19 @@
             return $this->data;
         }
 
-        function set_ora($ora) {
-            $this->ora = $ora;
+        function set_valore($valore) {
+            $this->valore = $valore;
         }
         
-        function get_ora() {
-            return $this->ora;
+        function get_valore() {
+            return $this->valore;
         }
 
         public function jsonSerialize(){
 
             $a = [
                 "data" => $this->data,
-                "ora" => $this->ora,
+                "valore" => $this->valore,
             ];
             return $a;
 
